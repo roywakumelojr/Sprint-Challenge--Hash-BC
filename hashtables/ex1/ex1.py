@@ -13,6 +13,18 @@ def get_indices_of_item_weights(weights, length, limit):
     YOUR CODE HERE
     """
 
+    for zeroth_index in range(length):
+        hash_table_insert(ht, weights[zeroth_index], zeroth_index)
+
+    for zeroth_index in range(length):
+        first_index = hash_table_retrieve(ht, (limit - weights[zeroth_index]))
+
+        if first_index:
+            if first_index > zeroth_index:
+                return [first_index, zeroth_index]
+            else:
+                return [zeroth_index, first_index]
+
     return None
 
 
